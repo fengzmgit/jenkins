@@ -7,5 +7,17 @@ pipeline {
                 bat 'echo Hello World!'
             }
         }
+        
+        stage('Test') {
+            steps {
+                bat 'echo "Testing"'
+            }
+        }
+        
+        stage('Release') {
+            steps {
+                bat 'echo Relesed!'
+            }
+        }
     }
 }
