@@ -20,9 +20,9 @@ pipeline {
             }
         }
         
-        stage('Failure') {
+        stage('Success') {
             steps {
-                bat 'exit 1'
+                bat 'exit 0'
             }
         }
     }
