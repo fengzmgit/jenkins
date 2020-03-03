@@ -20,9 +20,9 @@ pipeline {
             }
         }
         
-        stage('Success') {
+        stage('Fail') {
             steps {
-                bat 'exit 0'
+                bat 'exit 1'
             }
         }
     }
@@ -37,6 +37,11 @@ pipeline {
         }
         failure {
             echo 'This will run only if failed'
+            
+            mail to: 'fengzm@gmail.com',
+                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Something is wrong with ${env.BUILD_URL}"
+            
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
@@ -45,11 +50,5 @@ pipeline {
             echo 'This will run only if the state of the Pipeline has changed'
             echo 'For example, if the Pipeline was previously failing but is now successful'
         }
-        
-        failure {
-            mail to: 'fengzm@gmail.com',
-             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
-    }
     }
 }
