@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        BUILD_DIR = 'C:\workspace\jenkins-workspace\build'
+        BUILD_DIR = 'C:/workspace/jenkins-workspace/build'
     }
     
     stages {
