@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    environment {
+        BUILD_DIR = 'C:\workspace\jenkins-workspace\build'
+    }
+    
     stages {
         stage('Build') {
             steps {
@@ -30,7 +35,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            junit 'build/reports/**/*.xml'
+            junit '${BUILD_DIR}/reports/**/*.xml'
         }
         success {
             echo 'This will run only if successful'
