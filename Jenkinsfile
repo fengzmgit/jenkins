@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'set'
+                //bat 'set'
                 bat 'echo Hello World!'
             }
         }
@@ -35,7 +35,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
-            junit '${BUILD_DIR}/reports/**/*.xml'
+            echo "${BUILD_DIR}"
         }
         success {
             echo 'This will run only if successful'
