@@ -2,32 +2,31 @@ pipeline {
     agent any
     
     environment {
-        BUILD_DIR = 'C:/workspace/jenkins-workspace/build'
+        BUILD_DIR = '.'
     }
     
     stages {
         stage('Build') {
             steps {
-                //bat 'set'
-                bat 'echo Hello World!'
+                echo 'Hello World!'
             }
         }
         
         stage('Test') {
             steps {
-                bat 'echo "Testing"'
+                echo 'echo "Testing"'
             }
         }
         
         stage('Release') {
             steps {
-                bat 'echo Relesed!'
+                echo 'echo Relesed!'
             }
         }
         
         stage('Success') {
             steps {
-                bat 'exit 0'
+                echo 'exit 0'
             }
         }
     }
